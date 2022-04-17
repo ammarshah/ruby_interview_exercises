@@ -5,7 +5,7 @@ Provides an `in_words` class method that you can use to convert upto Duotriginti
 
 ### How to include
 
-Copy lib/number_in_words.rb file to, for example, lib/ directory of your ruby/rails project & then require it in any class using:
+Copy lib/number_in_words.rb file to, for example, /lib directory of your ruby/rails project & then require it in any class using:
 
 ```ruby
 require_relative "lib/number_in_words" # In non-rails project

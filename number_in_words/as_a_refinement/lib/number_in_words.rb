@@ -163,7 +163,6 @@ module NumberInWords
 
     private
 
-    # Sample input: ('12345001')        => Expected output: ['12', '345', '001']
     def NumberInWords.convert_string_into_chunks_of_max_three_digits(str)
         # Start adding consecutive three digits from the end of the string to have them placed properly
         reversed = str.reverse # => '10054321'
@@ -172,7 +171,6 @@ module NumberInWords
         return unreversed_digits_in_each_chunk.reverse # => ['12', '345', '001']
     end
 
-    # Sample input: (['12', '345', '001'])        => Expected output: 'twelve million three hundred forty-five thousand one'
     def NumberInWords.convert_all_chunks_into_words(chunks_array)
         total_digits = chunks_array.join('').size
         offset = 0
@@ -190,27 +188,6 @@ module NumberInWords
         return final_string
     end
 
-    # Sample input: (chunk: '10',   first_digit_unit_place_value: 2)              => Expected output: 'ten'
-    # Sample input: (chunk: '42',   first_digit_unit_place_value: 2)              => Expected output: 'forty-two'
-    # Sample input: (chunk: '000',  first_digit_unit_place_value: 3)              => Expected output: nil
-    # Sample input: (chunk: '001',  first_digit_unit_place_value: 3)              => Expected output: 'one'
-    # Sample input: (chunk: '010',  first_digit_unit_place_value: 3)              => Expected output: 'ten'
-    # Sample input: (chunk: '011',  first_digit_unit_place_value: 3)              => Expected output: 'eleven'
-    # Sample input: (chunk: '100',  first_digit_unit_place_value: 3)              => Expected output: 'one hundred'
-    # Sample input: (chunk: '101',  first_digit_unit_place_value: 3)              => Expected output: 'one hundred one'
-    # Sample input: (chunk: '110',  first_digit_unit_place_value: 3)              => Expected output: 'one hundred ten'
-    # Sample input: (chunk: '111',  first_digit_unit_place_value: 3)              => Expected output: 'one hundred eleven'
-    # Sample input: (chunk: '345',  first_digit_unit_place_value: 3)              => Expected output: 'three hundred forty-five'
-    # Sample input: (chunk: '1',    first_digit_unit_place_value: 4)              => Expected output: 'one thousand'
-    # Sample input: (chunk: '10',   first_digit_unit_place_value: 5)              => Expected output: 'ten thousand'
-    # Sample input: (chunk: '21',   first_digit_unit_place_value: 5)              => Expected output: 'twenty-one thousand'
-    # Sample input: (chunk: '000',  first_digit_unit_place_value: 6)              => Expected output: nil
-    # Sample input: (chunk: '001',  first_digit_unit_place_value: 6)              => Expected output: 'one thousand'
-    # Sample input: (chunk: '010',  first_digit_unit_place_value: 6)              => Expected output: 'ten thousand'
-    # Sample input: (chunk: '100',  first_digit_unit_place_value: 6)              => Expected output: 'one hundred thousand'
-    # Sample input: (chunk: '101',  first_digit_unit_place_value: 6)              => Expected output: 'one hundred one thousand'
-    # Sample input: (chunk: '111',  first_digit_unit_place_value: 6)              => Expected output: 'one hundred eleven thousand'
-    # Sample input: (chunk: '121',  first_digit_unit_place_value: 6)              => Expected output: 'one hundred twenty-one thousand'
     def NumberInWords.chunk_resolver(chunk:, first_digit_unit_place_value:)
         # Remove leading zeros, if any, and get updated first_digit_unit_place_value
         hash = NumberInWords.chunk_and_unit_place_value_corrector(chunk: chunk, first_digit_unit_place_value: first_digit_unit_place_value)
@@ -235,27 +212,6 @@ module NumberInWords
         end
     end
 
-    # Sample input: (chunk: '10',   first_digit_unit_place_value: 2)         => Expected output: {:chunk=>"10", :first_digit_unit_place_value=>2}
-    # Sample input: (chunk: '42',   first_digit_unit_place_value: 2)         => Expected output: {:chunk=>"42", :first_digit_unit_place_value=>2}
-    # Sample input: (chunk: '000',  first_digit_unit_place_value: 3)         => Expected output: nil
-    # Sample input: (chunk: '001',  first_digit_unit_place_value: 3)         => Expected output: {:chunk=>"1", :first_digit_unit_place_value=>1}
-    # Sample input: (chunk: '010',  first_digit_unit_place_value: 3)         => Expected output: {:chunk=>"10", :first_digit_unit_place_value=>2}
-    # Sample input: (chunk: '011',  first_digit_unit_place_value: 3)         => Expected output: '{:chunk=>"11", :first_digit_unit_place_value=>2}
-    # Sample input: (chunk: '100',  first_digit_unit_place_value: 3)         => Expected output: {:chunk=>"100", :first_digit_unit_place_value=>3}
-    # Sample input: (chunk: '101',  first_digit_unit_place_value: 3)         => Expected output: {:chunk=>"101", :first_digit_unit_place_value=>3}
-    # Sample input: (chunk: '110',  first_digit_unit_place_value: 3)         => Expected output: {:chunk=>"110", :first_digit_unit_place_value=>3}
-    # Sample input: (chunk: '111',  first_digit_unit_place_value: 3)         => Expected output: {:chunk=>"111", :first_digit_unit_place_value=>3}
-    # Sample input: (chunk: '345',  first_digit_unit_place_value: 3)         => Expected output: {:chunk=>"345", :first_digit_unit_place_value=>3}
-    # Sample input: (chunk: '1',    first_digit_unit_place_value: 4)         => Expected output: {:chunk=>"1", :first_digit_unit_place_value=>4}
-    # Sample input: (chunk: '10',   first_digit_unit_place_value: 5)         => Expected output: {:chunk=>"10", :first_digit_unit_place_value=>5}
-    # Sample input: (chunk: '21',   first_digit_unit_place_value: 5)         => Expected output: {:chunk=>"21", :first_digit_unit_place_value=>5}
-    # Sample input: (chunk: '000',  first_digit_unit_place_value: 6)         => Expected output: nil
-    # Sample input: (chunk: '001',  first_digit_unit_place_value: 6)         => Expected output: {:chunk=>"1", :first_digit_unit_place_value=>4}
-    # Sample input: (chunk: '010',  first_digit_unit_place_value: 6)         => Expected output: {:chunk=>"10", :first_digit_unit_place_value=>5}
-    # Sample input: (chunk: '100',  first_digit_unit_place_value: 6)         => Expected output: {:chunk=>"100", :first_digit_unit_place_value=>6}
-    # Sample input: (chunk: '101',  first_digit_unit_place_value: 6)         => Expected output: {:chunk=>"101", :first_digit_unit_place_value=>6}
-    # Sample input: (chunk: '111',  first_digit_unit_place_value: 6)         => Expected output: {:chunk=>"111", :first_digit_unit_place_value=>6}
-    # Sample input: (chunk: '121',  first_digit_unit_place_value: 6)         => Expected output: {:chunk=>"121", :first_digit_unit_place_value=>6}
     def NumberInWords.chunk_and_unit_place_value_corrector(chunk:, first_digit_unit_place_value:)
         leading_zeros_removed_chunk = chunk.to_i.to_s # '005' => '5'
         return nil if leading_zeros_removed_chunk == '0'
@@ -265,22 +221,12 @@ module NumberInWords
         return { chunk: leading_zeros_removed_chunk, first_digit_unit_place_value: first_digit_unit_place_value }
     end
 
-    # Sample input: (digit_str: '0')                        => Expected output: 'zero'
-    # Sample input: (digit_str: '5')                        => Expected output: 'five'
-    # Sample input: (digit_str: '2', unit: 'hundred')       => Expected output: 'two hundred'
     def NumberInWords.unit_resolver(digit_str:, **options)
         digit_in_word = DICTIONARY[digit_str]
         unit = options[:unit]
         return "#{digit_in_word} #{unit}".strip
     end
 
-    # Sample input: (number_str: '00')                          => Expected output: nil
-    # Sample input: (number_str: '00', unit: 'thousand')        => Expected output: 'thousand'
-    # Sample input: (number_str: '01')                          => Expected output: 'one'
-    # Sample input: (number_str: '10')                          => Expected output: 'ten'
-    # Sample input: (number_str: '11')                          => Expected output: 'eleven'
-    # Sample input: (number_str: '21')                          => Expected output: 'twenty-one'
-    # Sample input: (number_str: '50', unit: 'thousand')        => Expected output: 'fifty thousand'
     def NumberInWords.ten_resolver(number_str:, **options)
         # Convert number_str to NumberInWords and then back to string in case the input is '00' or '01'
         number_str = number_str.to_i.to_s
@@ -296,15 +242,6 @@ module NumberInWords
         return "#{number_in_words} #{unit}".strip
     end
 
-    # Sample input: (number_str: '1',   units_array: ['hundred'])                     => Expected output: 'one hundred'
-    # Sample input: (number_str: '100', units_array: ['hundred'])                     => Expected output: 'one hundred'
-    # Sample input: (number_str: '101', units_array: ['hundred'])                     => Expected output: 'one hundred one'
-    # Sample input: (number_str: '110', units_array: ['hundred'])                     => Expected output: 'one hundred ten'
-    # Sample input: (number_str: '119', units_array: ['hundred'])                     => Expected output: 'one hundred nineteen'
-    # Sample input: (number_str: '121', units_array: ['hundred'])                     => Expected output: 'one hundred twenty-one'
-    # Sample input: (number_str: '100', units_array: ['hundred', 'thousand'])         => Expected output: 'one hundred thousand'
-    # Sample input: (number_str: '101', units_array: ['hundred', 'thousand'])         => Expected output: 'one hundred one thousand'
-    # Sample input: (number_str: '121', units_array: ['hundred', 'thousand'])         => Expected output: 'one hundred twenty-one thousand'
     def NumberInWords.hundred_resolver(number_str:, units_array:)
         words = [
                     NumberInWords.unit_resolver(digit_str: number_str[0], unit: units_array[0]),
@@ -313,24 +250,10 @@ module NumberInWords
         return words.join(' ').strip
     end
 
-    # Sample input: ("twenty-two")                  => Expected output: "Twenty-Two"
-    # Sample input: ("one hundred")                 => Expected output: "One Hundred"
-    # Sample input: ("one hundred one")             => Expected output: "One Hundred One"
-    # Sample input: ("one hundred twenty-one")      => Expected output: "One Hundred Twenty-One"
     def NumberInWords.titleize(string)
         string.gsub(/\w+/, &:capitalize)
     end
 
-    # Sample input: ("one hundred one")                                 => Expected output: "One Hundred and One"
-    # Sample input: ("one hundred twenty-one")                          => Expected output: "One Hundred and Twenty-One"
-    # Sample input: ("one million one hundred ten")                     => Expected output: "One Million One Hundred and Ten"
-    # Sample input: ("one hundred fifty thousand two hundred one")      => Expected output: "One Hundred Fifty Thousand Two Hundred and One"
-    # Sample input: ("one hundred thousand")                            => Expected output: "One Hundred Thousand"
-    # Sample input: ("one million one hundred")                         => Expected output: "One Million and One Hundred"
-    # Sample input: ("two hundred ten thousand")                        => Expected output: "Two Hundred and Ten Thousand"
-    # Sample input: ("one hundred fifty-one thousand")                  => Expected output: "One Hundred and Fifty-One Thousand"
-    # Sample input: ("one hundred fifty thousand two hundred")          => Expected output: "One Hundred Fifty Thousand and Two Hundred"
-    # Sample input: ("one million two hundred thousand")                => Expected output: "One Million and Two Hundred Thousand"
     def NumberInWords.add_and(string)
         words_array = string.split(' ')
         number_of_words = words_array.size
@@ -347,42 +270,24 @@ module NumberInWords
         words_array.join(' ')
     end
 
-    # Sample input: (["one", "hundred", "ten"])                     => Expected output: true
-    # Sample input: (["one", "hundred", "twenty-one"])              => Expected output: true
-    # Sample input: (["one", "hundred", "thousand"])                => Expected output: false
-    # Sample input: (["one", "hundred", "ten", "thousand"])         => Expected output: false
-    # Sample input: (["one", "hundred", "ten", "thousand"])         => Expected output: false
     def NumberInWords.last_word_exists_in_dictionary?(words_array)
         last_word = words_array.last
         NumberInWords.value_exists_in_dictionary?(last_word)
     end
 
 
-    # Sample input: (["one", "hundred", "ten", "thousand"])                         => Expected output: true
-    # Sample input: (["one", "hundred", "twenty-five", "thousand"])                 => Expected output: true
-    # Sample input: (["one", "million", "one", "hundred", "ten", "thousand"])       => Expected output: true
-    # Sample input: (["one", "million", "one", "hundred", "thousand"])              => Expected output: false
     def NumberInWords.second_last_word_exists_in_dictionary?(words_array)
         number_of_words = words_array.size
         second_last_word = words_array[number_of_words - 2]
         NumberInWords.value_exists_in_dictionary?(second_last_word)
     end
 
-    # Sample input: (["one", "hundred", "ten", "thousand"])                         => Expected output: false
-    # Sample input: (["one", "hundred", "twenty-five", "thousand"])                 => Expected output: false
-    # Sample input: (["one", "million", "one", "hundred", "ten", "thousand"])       => Expected output: false
-    # Sample input: (["one", "million", "one", "hundred", "thousand"])              => Expected output: true
     def NumberInWords.third_last_word_exists_in_dictionary?(words_array)
         number_of_words = words_array.size
         third_last_word = words_array[number_of_words - 3]
         NumberInWords.value_exists_in_dictionary?(third_last_word)
     end
 
-    # Sample input: ("one")                => Expected output: true
-    # Sample input: ("ten")                => Expected output: true
-    # Sample input: ("twenty-one")         => Expected output: true
-    # Sample input: ("hundred")            => Expected output: false
-    # Sample input: ("million")            => Expected output: false
     def NumberInWords.value_exists_in_dictionary?(value)
         DICTIONARY.has_value?(value.split('-').last.downcase)
     end

@@ -5,7 +5,7 @@ Implements an `in_words` instance method in `Integer` class that you can use to 
 
 ### How to include
 
-Copy lib/number_in_words.rb file to, for example, lib/ directory of your ruby/rails project & then require it in any class using:
+Copy lib/number_in_words.rb file to, for example, /lib directory of your ruby/rails project & then require it in any class using:
 
 ```ruby
 require_relative "lib/number_in_words" # In non-rails project

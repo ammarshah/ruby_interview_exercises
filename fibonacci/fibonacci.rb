@@ -1,8 +1,7 @@
 # 0,1,1,2,3,5,8,13,21,34,55,89...
 
 def fibonacci(n)
-    return 1 if n < 2
-    return fibonacci(n - 1) + fibonacci(n - 2)
+  (0..n-1).each_with_object([]) { |num, arr| num < 2 ? arr << num : arr << arr.last(2).sum }
 end
 
-puts fibonacci(6)
+p fibonacci(8) # => [0,1,1,2,3,5,8,13]

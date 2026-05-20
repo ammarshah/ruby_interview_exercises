@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/ammar/Desktop/ruby_interview_exercises/number_in_words/as_a_module/spec/support/custom_matchers/have_constant.rb": {
+      "/home/ammar/workspace/projects/ruby_interview_exercises/number_in_words/as_a_module/spec/support/custom_matchers/have_constant.rb": {
         "lines": [
           null,
           null,
@@ -44,7 +44,7 @@
           1
         ]
       },
-      "/home/ammar/Desktop/ruby_interview_exercises/number_in_words/as_a_module/spec/lib/number_in_words_spec.rb": {
+      "/home/ammar/workspace/projects/ruby_interview_exercises/number_in_words/as_a_module/spec/lib/number_in_words_spec.rb": {
         "lines": [
           1,
           1,
@@ -687,7 +687,7 @@
           null
         ]
       },
-      "/home/ammar/Desktop/ruby_interview_exercises/number_in_words/as_a_module/lib/number_in_words.rb": {
+      "/home/ammar/workspace/projects/ruby_interview_exercises/number_in_words/as_a_module/lib/number_in_words.rb": {
         "lines": [
           1,
           null,
@@ -851,7 +851,7 @@
           30,
           null,
           30,
-          2,
+          null,
           2,
           null,
           null,
@@ -866,7 +866,7 @@
           38,
           113,
           38,
-          3,
+          null,
           3,
           null,
           null,
@@ -888,7 +888,7 @@
           38,
           null,
           38,
-          4,
+          null,
           4,
           null,
           null,
@@ -917,7 +917,7 @@
           null,
           17,
           null,
-          4,
+          null,
           4,
           null,
           null,
@@ -931,7 +931,7 @@
           23,
           null,
           106,
-          4,
+          null,
           4,
           null,
           null,
@@ -942,7 +942,7 @@
           75,
           75,
           75,
-          3,
+          null,
           3,
           null,
           null,
@@ -957,12 +957,12 @@
           7,
           null,
           70,
-          null,
-          null,
+          45,
+          25,
           null,
           77,
           77,
-          3,
+          null,
           3,
           null,
           null,
@@ -975,7 +975,7 @@
           null,
           null,
           49,
-          4,
+          null,
           4,
           null,
           null,
@@ -1024,6 +1024,6 @@
         ]
       }
     },
-    "timestamp": 1650185160
+    "timestamp": 1779294650
   }
 }

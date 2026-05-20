@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/ammar/Desktop/ruby_interview_exercises/number_in_words/as_a_refinement/spec/support/custom_matchers/have_constant.rb": {
+      "/home/ammar/workspace/projects/ruby_interview_exercises/number_in_words/as_a_refinement/spec/support/custom_matchers/have_constant.rb": {
         "lines": [
           null,
           null,
@@ -44,7 +44,7 @@
           1
         ]
       },
-      "/home/ammar/Desktop/ruby_interview_exercises/number_in_words/as_a_refinement/spec/lib/number_in_words_spec.rb": {
+      "/home/ammar/workspace/projects/ruby_interview_exercises/number_in_words/as_a_refinement/spec/lib/number_in_words_spec.rb": {
         "lines": [
           1,
           1,
@@ -378,7 +378,7 @@
           null
         ]
       },
-      "/home/ammar/Desktop/ruby_interview_exercises/number_in_words/as_a_refinement/lib/number_in_words.rb": {
+      "/home/ammar/workspace/projects/ruby_interview_exercises/number_in_words/as_a_refinement/lib/number_in_words.rb": {
         "lines": [
           1,
           null,
@@ -617,8 +617,8 @@
           7,
           null,
           64,
-          null,
-          null,
+          41,
+          23,
           null,
           71,
           71,
@@ -677,6 +677,6 @@
         ]
       }
     },
-    "timestamp": 1650186131
+    "timestamp": 1779294929
   }
 }

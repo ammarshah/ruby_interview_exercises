@@ -1,9 +1,5 @@
-#!/bin/ruby
-
 require 'json'
-require 'stringio'
 require 'faraday'
-
 
 # Hacker Rank Test
 #
@@ -24,41 +20,39 @@ require 'faraday'
 # EXPECTED OUTPUT:
 # BKC DIVE
 # Vedge
-#
-
 
 def get_relevant_food_outlets(city, max_cost)
-    response = get_all_food_outlets_in_city(city)
-    relevant_outlets = response.select { |obj| obj["estimated_cost"] <= max_cost }
-    food_outlets = relevant_outlets.map {|obj| obj["name"]}
-    return food_outlets
+  response = get_all_food_outlets_in_city(city)
+  relevant_outlets = response.select { |obj| obj["estimated_cost"] <= max_cost }
+  food_outlets = relevant_outlets.map {|obj| obj["name"]}
+
+  food_outlets
 end
 
 def get_all_food_outlets_in_city(city)
-    food_outlets_endpoint = "https://jsonmock.hackerrank.com/api/food_outlets?city=#{city}"
-    data = []
+  food_outlets_endpoint = "https://jsonmock.hackerrank.com/api/food_outlets?city=#{city}"
+  data = []
+  response = call_endpoint(food_outlets_endpoint)
+  data += response["data"] # First page response
+  
+  total_pages = response["total_pages"] - 1 # Because first page response saved already
+  
+  total_pages.times do |counter| # counter starts with 0
+    page_number = counter + 2
+    food_outlets_endpoint = "https://jsonmock.hackerrank.com/api/food_outlets?city=#{city}&page=#{page_number}"
     response = call_endpoint(food_outlets_endpoint)
-    data += response["data"] # First page response
-    
-    total_pages = response["total_pages"] - 1 # Because first page response saved already
-    
-    total_pages.times do |counter| # counter starts with 0
-        page_number = counter + 2
-        food_outlets_endpoint = "https://jsonmock.hackerrank.com/api/food_outlets?city=#{city}&page=#{page_number}"
-        response = call_endpoint(food_outlets_endpoint)
-        data += response["data"]
-    end
-    return data
+    data += response["data"]
+  end
+
+  data
 end
 
 def call_endpoint(endpoint)
-    response = Faraday.get(endpoint)
-    return JSON.parse(response.body)
+  response = Faraday.get(endpoint)
+  JSON.parse(response.body)
 end
 
-# Set variables
 city = "Denver"
 max_cost = 50
 
-# Call the function
 puts get_relevant_food_outlets(city, max_cost)

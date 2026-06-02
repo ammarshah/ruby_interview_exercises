@@ -1,21 +1,17 @@
-# converts a delimitted string to an array of strings
-def split(string="", delimiter)
-    array = []
-    index = 0
+# Write a program to convert a delimitted string to an array of strings.
 
-    for char_index in 0...string.length # read each character in the `string` using a for loop
-        if string[char_index] == delimiter # incase of delimiter, add 1 to the index of the array variable
-            index += 1 unless array[index].nil? # only add 1 to the `index` if the 0th index of the `array` is not nil
-        else
-            if array[index].nil? # if this `index` of the `array` is nil then
-                array[index] = string[char_index] # push the character to that `index` of the `array`
-            else # if this `index` of the `array` already has a character then
-                array[index] += string[char_index] # append the character on that `index` of the `array`
-            end
-        end
-    end
-    
-    array
+# Examples:
+
+# Input: split_on_delimiter("....this...is.a.delimitted.string...", ".")
+# Output: ["this", "is", "a", "delimitted", "string"]
+
+# Input: split_on_delimiter("hello world", " ")
+# Output: ["hello", "world"]
+
+# Input: split_on_delimiter("a--b---c----d", "--")
+# Output: ["a", "b", "-c", "d"]
+
+def split_on_delimiter(str, delimiter)
+  return [str] if delimiter.empty?
+  str.split(delimiter).reject(&:empty?)
 end
-
-puts split("....this...is.a.delimitted.string...", ".").inspect

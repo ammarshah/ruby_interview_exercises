@@ -34,22 +34,26 @@
 # city              wind_avg      wind_median      temp_avg      temp_median
 # Lodz, Poland      4.7           4.2              54.8          53.6
 
-require_relative 'weather_app'
 require 'terminal-table'
+require_relative 'weather_app'
 
 def print_weather_data_to_console(cities)
+  begin
     weather_app = WeatherApp.new(client: 'VisualCrossing', api_key: ENV['VC_API_KEY'])
     required_data_keys = [:city, :wind_average,  :wind_median, :temp_average, :temp_median]
     rows = []
     
     cities.each do |city|
-        last30days_data = weather_app.get_data_for_last30days(city: city, include: [:days], elements: [:temp, :windspeed])
-        resolved_data_hash = weather_app.resolve_required_data_keys(data: last30days_data, required_data_keys: required_data_keys)
-        rows << resolved_data_hash.values
+      last30days_data = weather_app.get_data_for_last30days(city: city, include: [:days], elements: [:temp, :windspeed])
+      resolved_data_hash = weather_app.resolve_required_data_keys(data: last30days_data, required_data_keys: required_data_keys)
+      rows << resolved_data_hash.values
     end
-    
+
     table = Terminal::Table.new title: "Last 30 Days Weather Data", headings: required_data_keys, rows: rows
     puts table
+  rescue ArgumentError => e
+    puts "API Request Failed: #{e.message}"
+  end
 end
 
 cities = ["Copenhagen, Denmark", "Lodz, Poland", "Brussels, Belgium", "Islamabad, Pakistan"]

@@ -18,7 +18,7 @@ GEM
     logger (1.7.0)
     net-http (0.9.1)
       uri (>= 0.11.1)
-    oj (3.17.3)
+    oj (3.17.4)
       bigdecimal (>= 3.0)
       ostruct (>= 0.2)
     ostruct (0.6.3)
@@ -55,7 +55,7 @@ CHECKSUMS
   json (2.21.1) sha256=13a43df75d95641443f5702dff350f237164a9d811ff0f2c2800d4d980220583
   logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
   net-http (0.9.1) sha256=25ba0b67c63e89df626ed8fac771d0ad24ad151a858af2cc8e6a716ca4336996
-  oj (3.17.3) sha256=ebe3967b0bb7ac4f206561d0d9ac8875b9973f778600d7b61b5c355662a707ed
+  oj (3.17.4) sha256=733fe3bcb7a5d985bd2e943620b7bea1bffb2809318af7021c841b833a6858e1
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
   public_suffix (7.0.5) sha256=1a8bb08f1bbea19228d3bed6e5ed908d1cb4f7c2726d18bd9cadf60bc676f623
   reline (0.6.3) sha256=1198b04973565b36ec0f11542ab3f5cfeeec34823f4e54cebde90968092b1835
@@ -65,4 +65,4 @@ CHECKSUMS
   uri (1.1.1) sha256=379fa58d27ffb1387eaada68c749d1426738bd0f654d812fcc07e7568f5c57c6
 
 BUNDLED WITH
-  4.0.16
+  4.0.17
